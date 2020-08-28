@@ -1,0 +1,26 @@
+<base href="/">
+<p>login works!</p>
+
+<div *ngFor="let error of errorList">
+  <p class="alert alert-danger">{{error}}</p>
+</div>
+<div>
+    <label for="id">ユーザー名入力</label>
+    <input type="text" [(ngModel)]="login.username">
+</div>
+
+<div>
+    <label for="name">パスワード入力</label>
+    <input type="text" [(ngModel)]="login.password">
+</div>
+
+<div>
+    <button  (click)="onSubmit()">ログイン</button>
+    <button  onclick="location.href='./oauth2/authorization/keycloak'">keycloakでログイン</button>
+    <button  onclick="location.href='./potal'">keycloakでログインpotal</button>
+    <button  routerLink="/potal">keycloakでログインlink</button>
+</div>
+
+<a routerLink="/user">ユーザー登録はこちら</a>
+
+

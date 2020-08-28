@@ -1,0 +1,29 @@
+<div>
+
+
+<h2 id="title">茶 圓 ポ ー カ ー ユーザー登録</h2>
+
+<div *ngFor="let error of errorList">
+  <p class="alert alert-danger">{{error}}</p>
+</div>
+<div>
+    <label for="id">ユーザー名入力</label>
+    <input type="text" [(ngModel)]="user.username">
+</div>
+
+<div>
+    <label for="name">パスワード入力</label>
+    <input type="text" [(ngModel)]="user.password">
+</div>
+
+<div>
+    <label for="name">パスワード(確認用)入力</label>
+    <input type="text" [(ngModel)]="user.passwordForCheck">
+</div>
+
+<div>
+    <button class="btn btn-primary" (click)="onSubmit()">登録</button>
+    <button routerLink="/">キャンセル</button>
+</div>
+
+</div>

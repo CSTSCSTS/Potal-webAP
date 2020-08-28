@@ -20,20 +20,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				http.csrf().disable();
 
 				http.oauth2Login()
-    .loginPage("/login")
-    .permitAll();
+				.loginPage("/login")
+    .permitAll()
+    .defaultSuccessUrl("/oauth2loginSuccess", true);
 //				.successHandler(oauthLoginAuthenticationSuccessHandler());
     http.authorizeRequests()
       .anyRequest().authenticated();
 
-//				http.formLogin()
-//    .loginProcessingUrl("/login")
-////    .failureHandler(new LoginAuthenticationFailureHandler())
-//  //認証失敗時にforwardするURLを設定
-//    .successForwardUrl("/login/success")
-//    .failureForwardUrl("/login/error")
-//    .usernameParameter("userName").passwordParameter("password")
-//    .and();
+				http.formLogin()
+				.loginPage("/login")
+    .permitAll()
+    .loginProcessingUrl("/login")
+    .successForwardUrl("/login/success")
+    //認証失敗時にforwardするURLを設定
+    .failureForwardUrl("/login/error")
+    .usernameParameter("userName").passwordParameter("password")
+    .and();
 
 		}
 
